@@ -11,7 +11,7 @@ import com.google.api.client.util.Value;
 
 public class RegisterUserInGoogleRepository implements RegisterUserRepository {
 
-    @Value("${google.identity.api.key}")
+    @Value("${GOOGLE_IDENTITY_API_KEY}")
     private String apikey;
 
     private final RestTemplate restTemplate = new RestTemplate();
