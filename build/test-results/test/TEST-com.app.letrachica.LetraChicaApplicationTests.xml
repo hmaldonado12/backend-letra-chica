@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.letrachica.LetraChicaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-19T14:59:15.830Z" hostname="dany1002-Lenovo-ideapad-330-14IKB" time="2.403">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.app.letrachica.LetraChicaApplicationTests" time="2.403"/>
+  <system-out><![CDATA[11:59:10.858 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.app.letrachica.LetraChicaApplicationTests]: LetraChicaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:59:11.352 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.app.letrachica.LetraChicaApplication for test class com.app.letrachica.LetraChicaApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2025-05-19T11:59:12.900-03:00  INFO 71605 --- [letra_chica] [    Test worker] c.a.l.LetraChicaApplicationTests         : Starting LetraChicaApplicationTests using Java 17.0.15 with PID 71605 (started by dany1002 in /home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend)
+2025-05-19T11:59:12.904-03:00  INFO 71605 --- [letra_chica] [    Test worker] c.a.l.LetraChicaApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2025-05-19T11:59:15.791-03:00  INFO 71605 --- [letra_chica] [    Test worker] c.a.l.LetraChicaApplicationTests         : Started LetraChicaApplicationTests in 4.065 seconds (process running for 8.039)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
