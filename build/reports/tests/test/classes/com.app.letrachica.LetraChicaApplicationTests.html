@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.026s</div>
+<div class="counter">0.047s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 <a name="contextLoads()"></a>
 <h3 class="failures">contextLoads()</h3>
 <span class="code">
-<pre>java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@44ed0a8f testClass = com.app.letrachica.LetraChicaApplicationTests, locations = [], classes = [com.app.letrachica.LetraChicaApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@41d426b5, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@4758820d, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5629510, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@62727399, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7203c7ff, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@5d5f10b2, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@250985b1], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+<pre>java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@6c101cc1 testClass = com.app.letrachica.LetraChicaApplicationTests, locations = [], classes = [com.app.letrachica.LetraChicaApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@41d426b5, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@4758820d, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5629510, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@62727399, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7203c7ff, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@5d5f10b2, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@250985b1], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
 	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200)
@@ -100,7 +100,7 @@
 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createUser' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/core/usecase/impl/CreateUser.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createUserController' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/controller/rest/CreateUserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'createUser' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/core/usecase/impl/CreateUser.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 	at app//org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
 	at app//org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
 	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1387)
@@ -129,13 +129,29 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at app//org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
 	at app//org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
 	... 19 more
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createUser' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/core/usecase/impl/CreateUser.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at app//org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804)
+	at app//org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240)
+	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1387)
+	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1224)
+	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at app//org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at app//org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at app//org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at app//org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at app//org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at app//org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1681)
+	at app//org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627)
+	at app//org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
+	at app//org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 45 more
 Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 	at app//org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:2279)
 	at app//org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1702)
 	at app//org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627)
 	at app//org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913)
 	at app//org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
-	... 45 more
+	... 58 more
 </pre>
 </span>
 </div>
@@ -152,7 +168,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 </thead>
 <tr>
 <td class="failures">contextLoads()</td>
-<td class="failures">0.026s</td>
+<td class="failures">0.047s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -160,8 +176,8 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 <div class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>13:34:20.688 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.app.letrachica.LetraChicaApplicationTests]: LetraChicaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-13:34:20.968 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.app.letrachica.LetraChicaApplication for test class com.app.letrachica.LetraChicaApplicationTests
+<pre>14:56:10.315 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.app.letrachica.LetraChicaApplicationTests]: LetraChicaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:56:10.660 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.app.letrachica.LetraChicaApplication for test class com.app.letrachica.LetraChicaApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -172,13 +188,13 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 
  :: Spring Boot ::                (v3.4.5)
 
-2025-05-19T13:34:22.034-03:00  INFO 97309 --- [letra_chica] [    Test worker] c.a.l.LetraChicaApplicationTests         : Starting LetraChicaApplicationTests using Java 17.0.15 with PID 97309 (started by dany1002 in /home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend)
-2025-05-19T13:34:22.042-03:00  INFO 97309 --- [letra_chica] [    Test worker] c.a.l.LetraChicaApplicationTests         : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2025-05-19T13:34:24.140-03:00  WARN 97309 --- [letra_chica] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createUser' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/core/usecase/impl/CreateUser.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2025-05-19T13:34:24.264-03:00  INFO 97309 --- [letra_chica] [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
+2025-05-19T14:56:11.900-03:00  INFO 26616 --- [letra_chica] [    Test worker] c.a.l.LetraChicaApplicationTests         : Starting LetraChicaApplicationTests using Java 17.0.15 with PID 26616 (started by dany1002 in /home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend)
+2025-05-19T14:56:11.908-03:00  INFO 26616 --- [letra_chica] [    Test worker] c.a.l.LetraChicaApplicationTests         : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2025-05-19T14:56:13.758-03:00  WARN 26616 --- [letra_chica] [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createUserController' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/controller/rest/CreateUserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'createUser' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/core/usecase/impl/CreateUser.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2025-05-19T14:56:13.948-03:00  INFO 26616 --- [letra_chica] [    Test worker] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-05-19T13:34:24.324-03:00 ERROR 97309 --- [letra_chica] [    Test worker] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2025-05-19T14:56:14.052-03:00 ERROR 26616 --- [letra_chica] [    Test worker] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
 ***************************
 APPLICATION FAILED TO START
@@ -193,9 +209,9 @@ Action:
 
 Consider defining a bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' in your configuration.
 
-2025-05-19T13:34:24.350-03:00  WARN 97309 --- [letra_chica] [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.app.letrachica.LetraChicaApplicationTests@32177fa5]
+2025-05-19T14:56:14.064-03:00  WARN 26616 --- [letra_chica] [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.app.letrachica.LetraChicaApplicationTests@7d0d91a1]
 
-java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@44ed0a8f testClass = com.app.letrachica.LetraChicaApplicationTests, locations = [], classes = [com.app.letrachica.LetraChicaApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@41d426b5, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@4758820d, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5629510, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@62727399, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7203c7ff, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@5d5f10b2, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@250985b1], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@6c101cc1 testClass = com.app.letrachica.LetraChicaApplicationTests, locations = [], classes = [com.app.letrachica.LetraChicaApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = [&quot;org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true&quot;], contextCustomizers = [org.springframework.boot.test.autoconfigure.OnFailureConditionReportContextCustomizerFactory$OnFailureConditionReportContextCustomizer@41d426b5, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@4758820d, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5629510, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@62727399, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7203c7ff, org.springframework.boot.test.web.reactor.netty.DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory$DisableReactorResourceFactoryGlobalResourcesContextCustomizerCustomizer@5d5f10b2, org.springframework.test.context.support.DynamicPropertiesContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestAnnotation@250985b1], resourceBasePath = &quot;src/main/webapp&quot;, contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180) ~[spring-test-6.2.6.jar:6.2.6]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.6.jar:6.2.6]
 	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200) ~[spring-test-6.2.6.jar:6.2.6]
@@ -286,7 +302,7 @@ java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMerge
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71) ~[na:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69) ~[gradle-worker.jar:na]
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74) ~[gradle-worker.jar:na]
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createUser' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/core/usecase/impl/CreateUser.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createUserController' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/controller/rest/CreateUserController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'createUser' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/core/usecase/impl/CreateUser.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1387) ~[spring-beans-6.2.6.jar:6.2.6]
@@ -315,13 +331,29 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.6.jar:6.2.6]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.6.jar:6.2.6]
 	... 89 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'createUser' defined in file [/home/dany1002/Escritorio/workspace/fiuba/gdsi/letra-chica/backend/build/classes/java/main/com/app/letrachica/core/usecase/impl/CreateUser.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:240) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1387) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1224) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1681) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.6.jar:6.2.6]
+	... 115 common frames omitted
 Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.app.letrachica.core.gateway.RegisterUserRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:2279) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1702) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1627) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:913) ~[spring-beans-6.2.6.jar:6.2.6]
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-6.2.6.jar:6.2.6]
-	... 115 common frames omitted
+	... 128 common frames omitted
 
 </pre>
 </span>
@@ -1292,7 +1324,7 @@ Unconditional classes:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.13</a> at 19 may. 2025 13:34:24</p>
+<a href="https://www.gradle.org">Gradle 8.13</a> at 19 may. 2025 14:56:14</p>
 </div>
 </div>
 </body>

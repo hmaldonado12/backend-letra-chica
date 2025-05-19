@@ -10,7 +10,6 @@ public class CreateUser {
 
         private final RegisterUserRepository registerUserRepository;
 
-        @Autowired
         public CreateUser(RegisterUserRepository registerUserRepository) {
                 this.registerUserRepository = registerUserRepository;
         }
