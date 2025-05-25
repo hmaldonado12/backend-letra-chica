@@ -4,14 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.*;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
 import com.app.letrachica.core.gateway.RegisterUserRepository;
-import com.google.api.client.util.Value;
+import org.springframework.beans.factory.annotation.Value;
 
+@Repository
 public class RegisterUserInGoogleRepository implements RegisterUserRepository {
 
-    @Value("${GOOGLE_IDENTITY_API_KEY}")
+    @Value("${google.identity.api.key}")
     private String apikey;
 
     private final RestTemplate restTemplate = new RestTemplate();
@@ -22,8 +24,12 @@ public class RegisterUserInGoogleRepository implements RegisterUserRepository {
         // This could involve making an API call to Google's user management service
         // For example:
         // googleApiClient.registerUser(userId, name, email, password, phoneNumber, address);
-        
+
+        System.out.println("Api Key: " + apikey);
+
         String url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + apikey;
+
+        System.out.println("URL: " + url);
 
         Map<String, Object> body = new HashMap<>();
         body.put("email", email);
