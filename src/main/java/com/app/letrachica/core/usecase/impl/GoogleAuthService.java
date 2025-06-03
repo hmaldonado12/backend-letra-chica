@@ -28,8 +28,6 @@ public class GoogleAuthService {
                 String email = payload.getEmail();
                 String name = (String) payload.get("name");
 
-                // Here you would typically check if the user exists in your database
-
                 return ResponseEntity.ok(new UserRegisterResponse("User authenticated successfully with Google. Name: " + name + ", Email: " + email));
             } else {
                 return ResponseEntity.badRequest().body(new UserRegisterResponse("Invalid ID token."));
