@@ -1,20 +1,16 @@
 package com.app.letrachica.core.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
-public class User {
+public class Category {
     private String id;
     private String name;
     private String email;
-    private List<Category> categories;
+    private String userId;
 
-    public User(String name, String email) {
-        this.id = UUID.randomUUID().toString();
+    public Category(String name, String userId, String email) {
+        this.id = java.util.UUID.randomUUID().toString();
         this.name = name;
+        this.userId = userId;
         this.email = email;
-        this.categories = new ArrayList<>();
     }
 
     public String getId() {
@@ -29,6 +25,10 @@ public class User {
         return email;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -39,17 +39,5 @@ public class User {
 
     public boolean equals(String id) {
         return this.id.equals(id);
-    }
-
-    public List<Category> getCategories() {
-        return categories;
-    }
-
-    public void addCategory(Category category) {
-        this.categories.add(category);
-    }
-
-    public void removeCategory(Category category) {
-        this.categories.removeIf(c -> c.equals(category.getId()));
     }
 }
