@@ -30,9 +30,9 @@ public class CreateUserController {
                 request.getPhoneNumber(),
                 request.getAddress()
             );
-            return ResponseEntity.ok(new UserRegisterResponse("User registered successfully."));
+            return ResponseEntity.ok(new UserRegisterResponse("User registered successfully.", null));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new UserRegisterResponse("User registration failed: " + e.getMessage()));
+            return ResponseEntity.badRequest().body(new UserRegisterResponse("User registration failed: " + e.getMessage(), null));
         }
     }
 }
