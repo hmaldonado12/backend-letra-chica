@@ -47,13 +47,13 @@ public class GoogleAuthService {
                             return newUser;
                         });
 
-                return ResponseEntity.ok(new UserRegisterResponse("User authenticated successfully with Google. Name: " + user.getName() + ", Email: " + user.getEmail()));
+                return ResponseEntity.ok(new UserRegisterResponse("User authenticated successfully with Google. Name: " + user.getName() + ", Email: " + user.getEmail(), user.getId()));
             } else {
-                return ResponseEntity.badRequest().body(new UserRegisterResponse("Invalid ID token."));
+                return ResponseEntity.badRequest().body(new UserRegisterResponse("Invalid ID token.", null));
             }
                 
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new UserRegisterResponse("Google authentication failed: " + e.getMessage()));
+            return ResponseEntity.badRequest().body(new UserRegisterResponse("Google authentication failed: " + e.getMessage(), null));
         }
     }
 }
