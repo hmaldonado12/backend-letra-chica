@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.app.letrachica.controller.contract.UserRegisterResponse;
+import com.app.letrachica.core.domain.User;
+import com.app.letrachica.core.gateway.UserRepository;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
@@ -15,6 +17,16 @@ import com.google.api.client.json.gson.GsonFactory;
 public class GoogleAuthService {
     
     private static final String CLIENT_ID = "889927933084-6o5i9bet4eemuovr7de4boa17a5gpkku.apps.googleusercontent.com";
+    private final UserRepository userRepository;
+
+    public GoogleAuthService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    // This constructor is for testing purposes only.
+    public GoogleAuthService() {
+        this.userRepository = null;
+    }
 
     public ResponseEntity<UserRegisterResponse> authenticateWithGoogle(String idTokenString) {
         try {
@@ -28,9 +40,14 @@ public class GoogleAuthService {
                 String email = payload.getEmail();
                 String name = (String) payload.get("name");
 
-                // Here you would typically check if the user exists in your database
+                User user = userRepository.findByEmail(email)
+                        .orElseGet(() -> {
+                            User newUser = new User(name, email);
+                            userRepository.save(newUser);
+                            return newUser;
+                        });
 
-                return ResponseEntity.ok(new UserRegisterResponse("User authenticated successfully with Google. Name: " + name + ", Email: " + email));
+                return ResponseEntity.ok(new UserRegisterResponse("User authenticated successfully with Google. Name: " + user.getName() + ", Email: " + user.getEmail()));
             } else {
                 return ResponseEntity.badRequest().body(new UserRegisterResponse("Invalid ID token."));
             }
