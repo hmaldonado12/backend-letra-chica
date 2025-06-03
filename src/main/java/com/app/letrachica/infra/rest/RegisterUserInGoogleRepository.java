@@ -3,6 +3,7 @@ package com.app.letrachica.infra.rest;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
@@ -11,23 +12,24 @@ import com.app.letrachica.core.gateway.RegisterUserRepository;
 import org.springframework.beans.factory.annotation.Value;
 
 @Repository
+@RequiredArgsConstructor
 public class RegisterUserInGoogleRepository implements RegisterUserRepository {
 
     @Value("${google.identity.api.key}")
     private String apikey;
 
+
+    @Value("${google.url.auth}")
+    private String urlAuth;
+
     private final RestTemplate restTemplate = new RestTemplate();
 
     @Override
     public void registerUser(String userId, String name, String email, String password, String phoneNumber, String address) {
-        // Implement the logic to register the user in Google
-        // This could involve making an API call to Google's user management service
-        // For example:
-        // googleApiClient.registerUser(userId, name, email, password, phoneNumber, address);
 
         System.out.println("Api Key: " + apikey);
 
-        String url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" + apikey;
+        String url = urlAuth + apikey;
 
         System.out.println("URL: " + url);
 
