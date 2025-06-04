@@ -44,9 +44,15 @@ public class CategoryController {
     @DeleteMapping("/{categoryId}")
     public Category removeCategory(@PathVariable String userId, @PathVariable String categoryId) {
         return userRepository.findById(userId)
-            .flatMap(user -> user.getCategories().stream()
-            .filter(c -> c.equals(categoryId))
-            .findFirst())
+            .map(user -> {
+                Category toRemove = user.getCategories().stream()
+                    .filter(c -> c.equals(categoryId))
+                    .findFirst()
+                    .orElseThrow(() -> new RuntimeException("Category not found"));
+                user.removeCategory(toRemove);
+                userRepository.save(user);
+                return toRemove;
+            })
         .orElseThrow(() -> new RuntimeException("Category not found"));
     }
 }

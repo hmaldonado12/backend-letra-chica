@@ -24,7 +24,7 @@ public class InMemoryCategoryRepository implements CategoryRepository {
     }
 
     @Override
-    public List<Category> findByAll() {
+    public List<Category> getAll() {
         return new ArrayList<>(categories.values());
     }
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.letrachica.infra.repository.InMemoryUserRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-06-04T16:04:13.300Z" hostname="dany1002-Lenovo-ideapad-330-14IKB" time="0.021">
+  <properties/>
+  <testcase name="testFindEmailShouldReturnEmptyIfNotFound()" classname="com.app.letrachica.infra.repository.InMemoryUserRepositoryTest" time="0.004"/>
+  <testcase name="testFindAllShouldReturnAllUsers()" classname="com.app.letrachica.infra.repository.InMemoryUserRepositoryTest" time="0.006"/>
+  <testcase name="testSaveAndFindByEmailShouldWorkCorrectly()" classname="com.app.letrachica.infra.repository.InMemoryUserRepositoryTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.letrachica.infra.repository.InMemoryCategoryRepositoryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-06-04T16:04:13.252Z" hostname="dany1002-Lenovo-ideapad-330-14IKB" time="0.041">
+  <properties/>
+  <testcase name="testFindByIdShouldReturnEmptyIfNotFound()" classname="com.app.letrachica.infra.repository.InMemoryCategoryRepositoryTest" time="0.005"/>
+  <testcase name="testGetAllShouldWorkCorrectly()" classname="com.app.letrachica.infra.repository.InMemoryCategoryRepositoryTest" time="0.002"/>
+  <testcase name="testFindByNameShouldWorkCorrectly()" classname="com.app.letrachica.infra.repository.InMemoryCategoryRepositoryTest" time="0.011"/>
+  <testcase name="testFindByNameShouldReturnEmptyIfNotFound()" classname="com.app.letrachica.infra.repository.InMemoryCategoryRepositoryTest" time="0.001"/>
+  <testcase name="testSaveAndFindByIdShouldWorkCorrectly()" classname="com.app.letrachica.infra.repository.InMemoryCategoryRepositoryTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.letrachica.core.usecase.impl.GoogleAuthServiceTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-06-03T02:22:18.004Z" hostname="dany1002-Lenovo-ideapad-330-14IKB" time="1.588">
+<testsuite name="com.app.letrachica.core.usecase.impl.GoogleAuthServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-04T16:04:12.397Z" hostname="dany1002-Lenovo-ideapad-330-14IKB" time="0.843">
   <properties/>
-  <testcase name="testShouldReturnBadRequestForInvalidToken()" classname="com.app.letrachica.core.usecase.impl.GoogleAuthServiceTest" time="1.588">
-    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at app//org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
-	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
-	at app//com.app.letrachica.core.usecase.impl.GoogleAuthServiceTest.testShouldReturnBadRequestForInvalidToken(GoogleAuthServiceTest.java:26)
-	at java.base@17.0.15/java.lang.reflect.Method.invoke(Method.java:569)
-	at java.base@17.0.15/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base@17.0.15/java.util.ArrayList.forEach(ArrayList.java:1511)
-</failure>
-  </testcase>
+  <testcase name="testShouldReturnBadRequestForInvalidToken()" classname="com.app.letrachica.core.usecase.impl.GoogleAuthServiceTest" time="0.843"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

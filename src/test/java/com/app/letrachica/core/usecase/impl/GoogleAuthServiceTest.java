@@ -20,10 +20,11 @@ public class GoogleAuthServiceTest {
 
         // Act
         ResponseEntity<UserRegisterResponse> response = googleAuthService.authenticateWithGoogle(invalidToken);
+        String message = response.getBody().getMessage().toLowerCase();
 
         // Assert
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertTrue(response.getBody().getMessage().contains("Invalid ID token.")
-            || response.getBody().getMessage().toLowerCase().contains("google authentication failed"));
+        assertTrue(message.contains("Invalid ID token.") || 
+                   message.contains("google authentication failed"));
     }
 }

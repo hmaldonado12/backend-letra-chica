@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.letrachica.controller.rest.CategoryControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-06-04T16:04:10.871Z" hostname="dany1002-Lenovo-ideapad-330-14IKB" time="1.421">
+  <properties/>
+  <testcase name="testGetCategoriesShouldReturnUserCategories()" classname="com.app.letrachica.controller.rest.CategoryControllerTest" time="1.151"/>
+  <testcase name="testRemoveCategoryShouldThrowIfNotFound()" classname="com.app.letrachica.controller.rest.CategoryControllerTest" time="0.106"/>
+  <testcase name="testAddCategoryShouldReturnNotFoundIfUserMissing()" classname="com.app.letrachica.controller.rest.CategoryControllerTest" time="0.013"/>
+  <testcase name="testRemoveCategoryShouldDeleteCategory()" classname="com.app.letrachica.controller.rest.CategoryControllerTest" time="0.107"/>
+  <testcase name="testAddCategoryShouldReturnCreated()" classname="com.app.letrachica.controller.rest.CategoryControllerTest" time="0.005"/>
+  <testcase name="testRemoveCategoryShouldThrowIfUserNotFound()" classname="com.app.letrachica.controller.rest.CategoryControllerTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
