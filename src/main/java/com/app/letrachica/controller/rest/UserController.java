@@ -29,29 +29,16 @@ public class UserController {
         return List.of();
     }
 
-    // TODO: Implement actual user registration logic
-    // Mock endpoint: user authenticated information
-    @GetMapping("/me")
-    public Map<String, Object> getCurrentUserInfo() {
-        // Mock data, replace with actual user information retrieval logic
-        return Map.of(
-            "id", "user-12345",
-            "name", "Test User",
-            "email", "test@example.com",
-            "categories", List.of("Finance", "Health", "Education")
-        );
-    }
-    
-    // TODO: Implement actual user retrieval logic
-    // Mock endpoint: user information by ID
+    // Endpoint: user information by ID
     @GetMapping("/{id}")
     public Map<String, Object> getUserById(@PathVariable String id) {
-        // Mock data, replace with actual user retrieval logic
-        return Map.of(
-            "id", id,
-            "name", "Test User",
-            "email", "testqexample.com",
-            "categories", List.of("Finance", "Health", "Education")
-        );
+        return userRepository.findById(id)
+            .map(user -> Map.of(
+                "id", user.getId(),
+                "name", user.getName(),
+                "email", user.getEmail(),
+                "categories", user.getCategories()
+            ))
+            .orElseThrow(() -> new RuntimeException("User not found"));
     }
 }

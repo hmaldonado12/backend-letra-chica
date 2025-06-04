@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import com.app.letrachica.controller.contract.CreateCategoryRequest;
 import com.app.letrachica.core.domain.Category;
 import com.app.letrachica.core.domain.User;
 import com.app.letrachica.core.gateway.UserRepository;
@@ -21,18 +22,18 @@ public class CategoryController {
     }
 
     @GetMapping
-    public List<Category> getCategories(@PathVariable String userId, @PathVariable String name) {
+    public List<Category> getCategories(@PathVariable("id") String userId) {
         Optional<User> user = userRepository.findById(userId);
         return user.map(User::getCategories)
                    .orElse(List.of());
     }
 
-    @PostMapping("/{categoryName}")
-    public HttpStatus addCategory(@PathVariable String userId, @PathVariable String categoryName) {
+    @PostMapping
+    public HttpStatus addCategory(@PathVariable("id") String userId, @RequestBody CreateCategoryRequest request) {
         Optional<User> userOpt = userRepository.findById(userId);
         if (userOpt.isPresent()) {
             User user = userOpt.get();
-            Category category = new Category(categoryName, userId, user.getEmail());
+            Category category = new Category(request.getName(), userId, user.getEmail());
             user.addCategory(category);
             userRepository.save(user);
             return HttpStatus.CREATED;
@@ -40,15 +41,12 @@ public class CategoryController {
         return HttpStatus.NOT_FOUND;
     }
 
-    @DeleteMapping("/{categoryName}")
-    public List<Category> removeCategory(@PathVariable String userId, @PathVariable String categoryName) {
-        Optional<User> userOpt = userRepository.findById(userId);
-        if (userOpt.isPresent()) {
-            User user = userOpt.get();
-            user.getCategories().removeIf(c -> c.getName().equals(categoryName));
-            userRepository.save(user);
-            return user.getCategories();
-        }
-        return List.of();
+    @DeleteMapping("/{categoryId}")
+    public Category removeCategory(@PathVariable String userId, @PathVariable String categoryId) {
+        return userRepository.findById(userId)
+            .flatMap(user -> user.getCategories().stream()
+            .filter(c -> c.equals(categoryId))
+            .findFirst())
+        .orElseThrow(() -> new RuntimeException("Category not found"));
     }
 }
