@@ -23,11 +23,6 @@ public class GoogleAuthService {
         this.userRepository = userRepository;
     }
 
-    // This constructor is for testing purposes only.
-    public GoogleAuthService() {
-        this.userRepository = null;
-    }
-
     public ResponseEntity<UserRegisterResponse> authenticateWithGoogle(String idTokenString) {
         try {
             GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), GsonFactory.getDefaultInstance())

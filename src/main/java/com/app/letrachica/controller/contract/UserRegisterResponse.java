@@ -11,6 +11,9 @@ public class UserRegisterResponse {
         this.userId = id;
     }
 
+    public UserRegisterResponse(String message) {
+        this.message = message;}
+
     public String getMessage() { return message; }
     public void setMessage(String message) { this.message = message; }
 
