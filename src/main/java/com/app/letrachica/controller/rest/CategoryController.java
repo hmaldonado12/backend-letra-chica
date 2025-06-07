@@ -13,6 +13,7 @@ import com.app.letrachica.core.gateway.UserRepository;
 
 @RestController
 @RequestMapping("/users/{id}/categories")
+@CrossOrigin(origins = "http://localhost:8080")
 public class CategoryController {
 
     private final UserRepository userRepository;
@@ -24,8 +25,24 @@ public class CategoryController {
     @GetMapping
     public List<Category> getCategories(@PathVariable("id") String userId) {
         Optional<User> user = userRepository.findById(userId);
-        return user.map(User::getCategories)
-                   .orElse(List.of());
+        List<Category> categoriasPrueba2 = List.of(
+                new Category("Alquiler", userId, "test@example.com"),
+                new Category("Personal", userId, "test@example.com"),
+                new Category("Seguro", userId, "test@example.com"),
+                new Category("Otros", userId, "test@example.com")
+        );
+        if (user.isEmpty()) {
+            User testUser = new User(userId, "test@example.com");
+            List<Category> categoriasPrueba = List.of(
+                    new Category("Alquiler", userId, "test@example.com"),
+                    new Category("Personal", userId, "test@example.com"),
+                    new Category("Seguro", userId, "test@example.com"),
+                    new Category("Otros", userId, "test@example.com")
+            );
+            categoriasPrueba.forEach(testUser::addCategory);
+            user = Optional.of(testUser);
+        }
+        return categoriasPrueba2;
     }
 
     @PostMapping

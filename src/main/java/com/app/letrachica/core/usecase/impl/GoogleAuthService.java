@@ -42,7 +42,8 @@ public class GoogleAuthService {
                             return newUser;
                         });
 
-                return ResponseEntity.ok(new UserRegisterResponse("User authenticated successfully with Google. Name: " + user.getName() + ", Email: " + user.getEmail(), user.getId()));
+                System.out.println("User authenticated: " + user.getId());
+                return ResponseEntity.ok(new UserRegisterResponse(user.getId()));
             } else {
                 return ResponseEntity.badRequest().body(new UserRegisterResponse("Invalid ID token.", null));
             }
