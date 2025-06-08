@@ -23,11 +23,6 @@ public class GoogleAuthService {
         this.userRepository = userRepository;
     }
 
-    // This constructor is for testing purposes only.
-    public GoogleAuthService() {
-        this.userRepository = null;
-    }
-
     public ResponseEntity<UserRegisterResponse> authenticateWithGoogle(String idTokenString) {
         try {
             GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), GsonFactory.getDefaultInstance())
@@ -47,7 +42,8 @@ public class GoogleAuthService {
                             return newUser;
                         });
 
-                return ResponseEntity.ok(new UserRegisterResponse("User authenticated successfully with Google. Name: " + user.getName() + ", Email: " + user.getEmail(), user.getId()));
+                System.out.println("User authenticated: " + user.getId());
+                return ResponseEntity.ok(new UserRegisterResponse(user.getId()));
             } else {
                 return ResponseEntity.badRequest().body(new UserRegisterResponse("Invalid ID token.", null));
             }
