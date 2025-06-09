@@ -15,11 +15,13 @@ public class DocumentEntity {
     private String summary;
     private LocalDateTime createdAt;
 
-    // TODO: Replace with @ManyToOne when UserEntity is ready
-    private String userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
-    // TODO: Replace with @ManyToOne when CategoryEntity is ready
-    private String categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
 
     public String getId() {
         return id;
@@ -37,12 +39,12 @@ public class DocumentEntity {
         return createdAt;
     }
 
-    public String getUserId() {
-        return userId;
+    public UserEntity getUser() {
+        return user;
     }
 
-    public String getCategoryId() {
-        return categoryId;
+    public CategoryEntity getCategory() {
+        return category;
     }
 
     public void setTitle(String title) {
@@ -55,13 +57,5 @@ public class DocumentEntity {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
     }
 }

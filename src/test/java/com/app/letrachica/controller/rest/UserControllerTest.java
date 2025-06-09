@@ -13,7 +13,8 @@ import org.junit.jupiter.api.Test;
 
 import com.app.letrachica.core.domain.User;
 import com.app.letrachica.core.gateway.UserRepository;
-import com.app.letrachica.infra.repository.InMemoryUserRepository;
+import com.app.letrachica.infra.repository.UserRepositoryImpl;
+import com.app.letrachica.infra.repository.jpa.UserJpaRepository;
 
 public class UserControllerTest {
 
@@ -30,7 +31,8 @@ public class UserControllerTest {
 
     @Test
     void testGetAllUsersShouldReturnUsers() {
-        InMemoryUserRepository repo = new InMemoryUserRepository();
+        UserJpaRepository userJpaRepository = mock(UserJpaRepository.class);
+        UserRepositoryImpl repo = new UserRepositoryImpl(userJpaRepository);
         repo.save(user);
         UserController controller = new UserController(repo);
 

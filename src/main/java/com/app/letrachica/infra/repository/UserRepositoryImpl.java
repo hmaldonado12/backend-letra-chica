@@ -1,5 +1,6 @@
 package com.app.letrachica.infra.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
@@ -36,5 +37,12 @@ public class UserRepositoryImpl implements UserRepository {
     public Optional<User> findById(String id) {
         return jpaRepository.findById(id)
                 .map(entity -> new User(entity.getName(), entity.getEmail()));
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return jpaRepository.findAll().stream()
+                .map(entity -> new User(entity.getName(), entity.getEmail()))
+                .toList();
     }
 }

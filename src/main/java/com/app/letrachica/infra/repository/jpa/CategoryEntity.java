@@ -11,8 +11,9 @@ public class CategoryEntity {
 
     private String name;
 
-    // TODO: This value is a foreign key to the user table
-    private String userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
     public String getId() {
         return id;
@@ -22,15 +23,15 @@ public class CategoryEntity {
         return name;
     }
 
-    public String getUserId() {
-        return userId;
+    public UserEntity getUser() {
+        return user;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 }
