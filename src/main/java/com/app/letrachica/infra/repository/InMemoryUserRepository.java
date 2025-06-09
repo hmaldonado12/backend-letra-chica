@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.app.letrachica.core.domain.User;
 import com.app.letrachica.core.gateway.UserRepository;
 
-@Repository
+// @Repository
 public class InMemoryUserRepository implements UserRepository {
     private final Map<String, User> users = new ConcurrentHashMap<>();
 

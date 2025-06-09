@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "categories")
 public class CategoryEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String name;

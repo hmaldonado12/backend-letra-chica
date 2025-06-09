@@ -31,4 +31,10 @@ public class UserRepositoryImpl implements UserRepository {
         entity.setEmail(user.getEmail());
         jpaRepository.save(entity);
     }
+
+    @Override
+    public Optional<User> findById(String id) {
+        return jpaRepository.findById(id)
+                .map(entity -> new User(entity.getName(), entity.getEmail()));
+    }
 }
