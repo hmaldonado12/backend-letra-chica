@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.app.letrachica.infra.repository.jpa.UserEntity;
+
 public class User {
     private String id;
     private String name;
@@ -15,6 +17,15 @@ public class User {
         this.name = name;
         this.email = email;
         this.categories = new ArrayList<>();
+    }
+
+    public User(UserEntity entity) {
+        this.id = entity.getId();
+        this.name = entity.getName();
+        this.email = entity.getEmail();
+        this.categories = entity.getCategories().stream()
+                .map(Category::new)
+                .toList();
     }
 
     public String getId() {

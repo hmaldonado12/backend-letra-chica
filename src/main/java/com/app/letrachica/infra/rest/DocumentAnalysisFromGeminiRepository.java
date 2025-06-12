@@ -17,7 +17,7 @@ import java.util.Map;
 public class DocumentAnalysisFromGeminiRepository implements DocumentAnalysis {
 
     private static final String API_KEY = "";
-    private static final String URL ="";
+    private static final String URL ="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=";
     @Override
     public String getDocument(String contractText) {
         RestTemplate restTemplate = new RestTemplate();

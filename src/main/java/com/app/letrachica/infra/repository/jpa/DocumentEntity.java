@@ -2,6 +2,8 @@ package com.app.letrachica.infra.repository.jpa;
 
 import java.time.LocalDateTime;
 
+import com.app.letrachica.core.domain.Document;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class DocumentEntity {
 
     private String title;
     private String summary;
+    private String status;
     private LocalDateTime createdAt;
 
     @ManyToOne
@@ -22,6 +25,16 @@ public class DocumentEntity {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
+
+    public DocumentEntity(Document document, UserEntity user, CategoryEntity category) {
+        this.id = document.getId();
+        this.title = document.getTitle();
+        this.summary = document.getSummary();
+        this.status = document.getStatus();
+        this.createdAt = document.getCreatedAt();
+        this.user = user;
+        this.category = category;
+    }
 
     public String getId() {
         return id;
@@ -47,6 +60,14 @@ public class DocumentEntity {
         return category;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -57,5 +78,17 @@ public class DocumentEntity {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -22,27 +22,25 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public Optional<User> findByEmail(String email) {
         return jpaRepository.findByEmail(email)
-                .map(entity -> new User(entity.getName(), entity.getEmail()));
+                .map(User::new);
     }
 
     @Override
     public void save(User user) {
-        UserEntity entity = new UserEntity();
-        entity.setName(user.getName());
-        entity.setEmail(user.getEmail());
+        UserEntity entity = new UserEntity(user);
         jpaRepository.save(entity);
     }
 
     @Override
     public Optional<User> findById(String id) {
         return jpaRepository.findById(id)
-                .map(entity -> new User(entity.getName(), entity.getEmail()));
+                .map(User::new);
     }
 
     @Override
     public List<User> getAllUsers() {
         return jpaRepository.findAll().stream()
-                .map(entity -> new User(entity.getName(), entity.getEmail()))
+                .map(User::new)
                 .toList();
     }
 }
