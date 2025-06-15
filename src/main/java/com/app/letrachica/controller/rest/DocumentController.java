@@ -9,7 +9,6 @@ import com.app.letrachica.controller.contract.SaveDocumentRequest;
 import com.app.letrachica.core.domain.Document;
 import com.app.letrachica.core.gateway.DocumentRepository;
 import com.app.letrachica.core.usecase.RetrieveDocumentAnalysis;
-// import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

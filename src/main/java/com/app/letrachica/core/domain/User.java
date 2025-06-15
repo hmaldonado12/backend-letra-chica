@@ -2,10 +2,14 @@ package com.app.letrachica.core.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.app.letrachica.infra.repository.jpa.UserEntity;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 public class User {
     private String id;
     private String name;
@@ -13,7 +17,6 @@ public class User {
     private List<Category> categories;
 
     public User(String name, String email) {
-        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.email = email;
         this.categories = new ArrayList<>();
@@ -25,35 +28,11 @@ public class User {
         this.email = entity.getEmail();
         this.categories = entity.getCategories().stream()
                 .map(Category::new)
-                .toList();
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+                .collect(Collectors.toList());
     }
 
     public boolean equals(String id) {
         return this.id.equals(id);
-    }
-
-    public List<Category> getCategories() {
-        return categories;
     }
 
     public void addCategory(Category category) {

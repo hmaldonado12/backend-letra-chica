@@ -14,7 +14,6 @@ public class Document {
     private LocalDateTime createdAt;
 
     public Document(String title, String summary, String userId, String categoryId, String status) {
-        this.id = java.util.UUID.randomUUID().toString();
         this.title = title;
         this.summary = summary;
         this.status = status;

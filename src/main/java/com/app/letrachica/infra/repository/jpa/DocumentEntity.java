@@ -5,7 +5,11 @@ import java.time.LocalDateTime;
 import com.app.letrachica.core.domain.Document;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "documents")
 public class DocumentEntity {
@@ -14,6 +18,9 @@ public class DocumentEntity {
     private String id;
 
     private String title;
+
+    @Lob
+    @Column(columnDefinition = "CLOB")
     private String summary;
     private String status;
     private LocalDateTime createdAt;
@@ -36,59 +43,7 @@ public class DocumentEntity {
         this.category = category;
     }
 
-    public String getId() {
-        return id;
-    }
+    public DocumentEntity() {
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public CategoryEntity getCategory() {
-        return category;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
-
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

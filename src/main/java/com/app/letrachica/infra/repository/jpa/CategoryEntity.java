@@ -5,7 +5,9 @@ import java.util.List;
 import com.app.letrachica.core.domain.Category;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "categories")
 public class CategoryEntity {
@@ -24,7 +26,6 @@ public class CategoryEntity {
     private List<DocumentEntity> documents;
 
     public CategoryEntity(Category category, UserEntity user) {
-        this.id = category.getId();
         this.name = category.getName();
         this.email = category.getEmail();
         this.user = user;
@@ -33,24 +34,7 @@ public class CategoryEntity {
                 .toList();
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public List<DocumentEntity> getDocuments() {
-        return documents;
-    }
-
-    public String getEmail() {
-        return email;
+    public CategoryEntity() {
     }
 
     public void setName(String name) {

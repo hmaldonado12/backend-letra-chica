@@ -25,24 +25,7 @@ public class CategoryController {
     @GetMapping
     public List<Category> getCategories(@PathVariable("id") String userId) {
         Optional<User> user = userRepository.findById(userId);
-        List<Category> categoriasPrueba2 = List.of(
-                new Category("Alquiler", userId, "test@example.com"),
-                new Category("Personal", userId, "test@example.com"),
-                new Category("Seguro", userId, "test@example.com"),
-                new Category("Otros", userId, "test@example.com")
-        );
-        if (user.isEmpty()) {
-            User testUser = new User(userId, "test@example.com");
-            List<Category> categoriasPrueba = List.of(
-                    new Category("Alquiler", userId, "test@example.com"),
-                    new Category("Personal", userId, "test@example.com"),
-                    new Category("Seguro", userId, "test@example.com"),
-                    new Category("Otros", userId, "test@example.com")
-            );
-            categoriasPrueba.forEach(testUser::addCategory);
-            user = Optional.of(testUser);
-        }
-        return categoriasPrueba2;
+        return user.get().getCategories();
     }
 
     @PostMapping
@@ -50,7 +33,7 @@ public class CategoryController {
         Optional<User> userOpt = userRepository.findById(userId);
         if (userOpt.isPresent()) {
             User user = userOpt.get();
-            Category category = new Category(request.getName(), userId, user.getEmail());
+            Category category = new Category(request.getName(), user.getId(), user.getEmail());
             user.addCategory(category);
             userRepository.save(user);
             return HttpStatus.CREATED;
