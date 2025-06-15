@@ -13,7 +13,6 @@ import com.app.letrachica.core.gateway.UserRepository;
 
 @RestController
 @RequestMapping("/users/{id}/categories")
-@CrossOrigin(origins = "http://localhost:8080")
 public class CategoryController {
 
     private final UserRepository userRepository;

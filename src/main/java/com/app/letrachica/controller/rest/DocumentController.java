@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/categories/{categoryId}/documents")
-@CrossOrigin(origins = "http://localhost:8080")
 public class DocumentController {
 
     private final RetrieveDocumentAnalysis retrieveDocumentAnalysis;

@@ -38,7 +38,8 @@ public class DocumentAnalysisFromGeminiRepository implements DocumentAnalysis {
 
         try {
             System.out.println("Sending request to Gemini API with prompt: " + prompt);
-            ResponseEntity<String> response = restTemplate.postForEntity(URL, request, String.class);
+            String urlBuild = URL + apiKey;
+            ResponseEntity<String> response = restTemplate.postForEntity(urlBuild, request, String.class);
             System.out.println(response.getBody());
             return response.getBody();
         } catch (HttpClientErrorException e) {

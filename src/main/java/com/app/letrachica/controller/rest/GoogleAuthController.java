@@ -10,7 +10,6 @@ import com.app.letrachica.core.usecase.impl.GoogleAuthService;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:8080")
 public class GoogleAuthController {
 
     private final GoogleAuthService googleAuthService;
