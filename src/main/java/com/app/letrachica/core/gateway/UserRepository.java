@@ -7,5 +7,6 @@ import com.app.letrachica.core.domain.User;
 
 public interface UserRepository {
     Optional<User> findByEmail(String email);
+    Optional<User> findById(String id);
     void save(User user);
 }

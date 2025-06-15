@@ -21,6 +21,11 @@ public class InMemoryUserRepository implements UserRepository {
                 .filter(u -> u.getEmail().equalsIgnoreCase(email))
                 .findFirst();
     }
+
+    @Override
+    public Optional<User> findById(String id) {
+        return Optional.ofNullable(users.get(id));
+    }
     
     @Override
     public void save(User user) {
