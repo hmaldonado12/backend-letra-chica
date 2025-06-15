@@ -1,0 +1,1 @@
+web: java -jar build/libs/spring-railway-app-1.0.0.jar
