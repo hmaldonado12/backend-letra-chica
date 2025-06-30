@@ -16,7 +16,12 @@ import com.google.api.client.json.gson.GsonFactory;
 @Service
 public class GoogleAuthService {
     
-    private static final String CLIENT_ID = "889927933084-6o5i9bet4eemuovr7de4boa17a5gpkku.apps.googleusercontent.com";
+    // CLIENT_ID original (comentado por si es necesario después)
+    // private static final String CLIENT_ID = "889927933084-6o5i9bet4eemuovr7de4boa17a5gpkku.apps.googleusercontent.com";
+    
+    // CLIENT_ID de Firebase (el que está generando los tokens) - CORREGIDO
+    private static final String CLIENT_ID = "889927933084-c213n51cnolov6ec0rgo40579fstqahb.apps.googleusercontent.com";
+    
     private final UserRepository userRepository;
 
     public GoogleAuthService(UserRepository userRepository) {
@@ -35,7 +40,7 @@ public class GoogleAuthService {
                 String email = payload.getEmail();
                 String name = (String) payload.get("name");
 
-                User user = userRepository.findByEmail(email)
+                User user = userRepository.findFirstByEmail(email)
                         .orElseGet(() -> {
                             User newUser = new User(name, email);
                             userRepository.save(newUser);

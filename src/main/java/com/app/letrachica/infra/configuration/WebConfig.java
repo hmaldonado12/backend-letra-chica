@@ -19,10 +19,10 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins(portMobile)
+                        .allowedOrigins("*")  // Permitir todos los orígenes para debug
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(false); // Cambiar a false cuando se permite *
             }
         };
     }

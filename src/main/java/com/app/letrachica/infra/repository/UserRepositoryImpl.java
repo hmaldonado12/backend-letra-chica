@@ -30,6 +30,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public Optional<User> findFirstByEmail(String email) {
+        return jpaRepository.findFirstByEmail(email)
+                .map(User::new);
+    }
+
+    @Override
     public void save(User user) {
         if (user.getId() != null) {
             UserEntity entity = new UserEntity(user, user.getId());
