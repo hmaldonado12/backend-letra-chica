@@ -5,8 +5,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.app.letrachica.infra.repository.jpa.CategoryEntity;
-import jakarta.transaction.Transactional;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.app.letrachica.core.domain.User;

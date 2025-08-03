@@ -46,6 +46,12 @@ public class CategoryController {
         Optional<User> userOpt = userRepository.findById(userId);
         if (userOpt.isPresent()) {
             User user = userOpt.get();
+            boolean exists = user.getCategories().stream()
+                .anyMatch(c -> c.getName().equalsIgnoreCase(request.getName()));
+            if (exists) {
+                logger.warn("⚠️ Ya existe una categoría con el nombre '{}' para el usuario {}", request.getName(), userId);
+                return HttpStatus.CONFLICT;
+            }
             Category category = new Category(request.getName(), user.getId(), user.getEmail());
             user.addCategory(category);
             userRepository.save(user);

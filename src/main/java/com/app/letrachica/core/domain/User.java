@@ -14,6 +14,7 @@ public class User {
     private String id;
     private String name;
     private String email;
+    private String passwordHash;
     private List<Category> categories;
 
     public User(String name, String email) {
@@ -26,6 +27,7 @@ public class User {
         this.id = entity.getId();
         this.name = entity.getName();
         this.email = entity.getEmail();
+        this.passwordHash = entity.getPasswordHash();
         this.categories = entity.getCategories().stream()
                 .map(Category::new)
                 .collect(Collectors.toList());

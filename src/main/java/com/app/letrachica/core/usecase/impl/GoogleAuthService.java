@@ -16,10 +16,6 @@ import com.google.api.client.json.gson.GsonFactory;
 @Service
 public class GoogleAuthService {
     
-    // CLIENT_ID original (comentado por si es necesario después)
-    // private static final String CLIENT_ID = "889927933084-6o5i9bet4eemuovr7de4boa17a5gpkku.apps.googleusercontent.com";
-    
-    // CLIENT_ID de Firebase (el que está generando los tokens) - CORREGIDO
     private static final String CLIENT_ID = "889927933084-c213n51cnolov6ec0rgo40579fstqahb.apps.googleusercontent.com";
     
     private final UserRepository userRepository;
@@ -37,6 +33,9 @@ public class GoogleAuthService {
             GoogleIdToken idToken = verifier.verify(idTokenString);
             if (idToken != null) {
                 GoogleIdToken.Payload payload = idToken.getPayload();
+                System.out.println("Google ID Token audience (clientId): " + payload.getAudience());
+                System.out.println("Google ID Token issuer: " + payload.getIssuer());
+                System.out.println("Google ID Token authorized party (azp): " + payload.getAuthorizedParty());
                 String email = payload.getEmail();
                 String name = (String) payload.get("name");
 
@@ -50,10 +49,12 @@ public class GoogleAuthService {
                 System.out.println("User authenticated: " + user.getId());
                 return ResponseEntity.ok(new UserRegisterResponse(user.getId()));
             } else {
+                System.err.println("[GoogleAuthService] Invalid ID token received: " + idTokenString);
                 return ResponseEntity.badRequest().body(new UserRegisterResponse("Invalid ID token.", null));
             }
-                
         } catch (Exception e) {
+            System.err.println("[GoogleAuthService] Exception during Google authentication: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.badRequest().body(new UserRegisterResponse("Google authentication failed: " + e.getMessage(), null));
         }
     }
