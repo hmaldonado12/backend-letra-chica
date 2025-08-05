@@ -9,21 +9,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig {
 
-    @Value("${mobile.host}")
-    private String portMobile;
-
     @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        System.out.println("Configuring CORS for mobile host: " + portMobile);
+    public WebMvcConfigurer corsConfigurer(@Value("${cors.allowed-origins}") String[] allowedOrigins) {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-             .allowedOrigins(portMobile.split(","))
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedOrigins(allowedOrigins)
+                        .allowedMethods("*")
                         .allowedHeaders("*")
-                        .allowCredentials(false); // Cambiar a false cuando se permite *
+                        .allowCredentials(true);
             }
         };
     }
+
 }
