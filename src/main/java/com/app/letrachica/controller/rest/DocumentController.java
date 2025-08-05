@@ -53,8 +53,8 @@ public class DocumentController {
     }
 
     @GetMapping
-    public Map<String, Object> getDocuments() {
-        List<Document> documents = documentRepository.findAll();
+    public Map<String, Object> getDocuments(@PathVariable String categoryId) {
+        List<Document> documents = documentRepository.findByCategoryId(categoryId);
         List<DocumentResponse> response = documents.stream()
                 .map(doc -> new DocumentResponse(
                     doc.getId(), 
@@ -66,12 +66,6 @@ public class DocumentController {
                 ))
                 .toList();
         return Map.of("documents", response);        
-        // return Map.of(
-        //         "documents", List.of(
-        //                 Map.of("id", "doc-001", "title", "Contrato de Prueba", "status", "analyzed"),
-        //                 Map.of("id", "doc-002", "title", "Factura", "status", "pending")
-        //         )
-        // );
     }
 
     @GetMapping("/{id}")
