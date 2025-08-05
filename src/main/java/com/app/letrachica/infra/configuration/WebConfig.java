@@ -10,17 +10,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig {
 
     @Bean
-    public WebMvcConfigurer corsConfigurer(@Value("${cors.allowed-origins}") String[] allowedOrigins) {
+    public WebMvcConfigurer corsConfigurer(@Value("${cors.allowed-origins}") String allowedOrigins) {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+                String[] origins = allowedOrigins.split(",");
                 registry.addMapping("/**")
-                        .allowedOrigins(allowedOrigins)
+                        .allowedOrigins("*")
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }
         };
     }
+
 
 }
