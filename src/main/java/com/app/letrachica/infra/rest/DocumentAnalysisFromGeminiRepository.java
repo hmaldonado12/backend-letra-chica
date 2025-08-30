@@ -1,6 +1,7 @@
 package com.app.letrachica.infra.rest;
 
 import com.app.letrachica.core.gateway.DocumentAnalysis;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -16,7 +17,9 @@ import java.util.Map;
 @Component
 public class DocumentAnalysisFromGeminiRepository implements DocumentAnalysis {
 
-    private static final String API_KEY = "";
+    @Value("${google.gemini.api.key}")
+    private String apiKey;
+
     private static final String URL ="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=";
     @Override
     public String getDocument(String contractText) {
@@ -35,7 +38,8 @@ public class DocumentAnalysisFromGeminiRepository implements DocumentAnalysis {
 
         try {
             System.out.println("Sending request to Gemini API with prompt: " + prompt);
-            ResponseEntity<String> response = restTemplate.postForEntity(URL, request, String.class);
+            String urlBuild = URL + apiKey;
+            ResponseEntity<String> response = restTemplate.postForEntity(urlBuild, request, String.class);
             System.out.println(response.getBody());
             return response.getBody();
         } catch (HttpClientErrorException e) {

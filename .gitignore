@@ -1,4 +1,6 @@
 .env
 /build/
+/bin/
 /.gradle/
-.idea
+.idea/
+*.log

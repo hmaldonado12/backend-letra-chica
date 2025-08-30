@@ -2,7 +2,6 @@ package com.app.letrachica.core.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import com.app.letrachica.infra.repository.jpa.CategoryEntity;
 import lombok.Getter;

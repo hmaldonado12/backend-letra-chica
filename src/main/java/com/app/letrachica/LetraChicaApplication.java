@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LetraChicaApplication {
 
     public static void main(String[] args) {
+        System.out.println("ENV PORT = " + System.getenv("PORT"));
         SpringApplication.run(LetraChicaApplication.class, args);
     }
 

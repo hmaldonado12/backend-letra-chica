@@ -21,7 +21,8 @@ public class UserEntity {
     private String name;
     @Setter
     private String email;
-
+    @Setter
+    private String passwordHash;
 
     @Setter
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -30,6 +31,7 @@ public class UserEntity {
     public UserEntity(User user) {
         this.name = user.getName();
         this.email = user.getEmail();
+        this.passwordHash = user.getPasswordHash();
         this.categories = user.getCategories().stream()
                 .map(category -> new CategoryEntity(category, this))
                 .toList();
@@ -39,6 +41,7 @@ public class UserEntity {
         this.id = userId;
         this.name = user.getName();
         this.email = user.getEmail();
+        this.passwordHash = user.getPasswordHash();
         this.categories = user.getCategories().stream()
                 .map(category -> new CategoryEntity(category, this))
                 .toList();
